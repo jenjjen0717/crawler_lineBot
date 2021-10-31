@@ -8,9 +8,12 @@ from linebot.exceptions import InvalidSignatureError
 from linebot import LineBotApi, WebhookHandler
 from flask import request, abort
 from flask import Flask
+
+import tempfile
+import os
+
 app = Flask(__name__)
-
-
+static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
 line_bot_api = LineBotApi(
     'pH1H8K7+HLxnyH8+1V4593fRaZ5w4os8qiFBxc9NEGP5LRI/hYETTD5Z1WYW64SEDdzk/Gho3/9xH7eYGqhDvunICTg0xVPhl6EumgGpUycshwQ1fUUwG+io+K/uTdAnYg/5XRvTsWocIYlbxWNMWAdB04t89/1O/w1cDnyilFU=')
 handler = WebhookHandler('479d40465262d442c52077b32933ff9a')
@@ -35,4 +38,5 @@ def handle_message(event):
 
 
 if __name__ == '__main__':
-    app.run()
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
