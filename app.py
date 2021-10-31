@@ -15,7 +15,7 @@ import os
 app = Flask(__name__)
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
 line_bot_api = LineBotApi(
-    'pH1H8K7+HLxnyH8+1V4593fRaZ5w4os8qiFBxc9NEGP5LRI/hYETTD5Z1WYW64SEDdzk/Gho3/9xH7eYGqhDvunICTg0xVPhl6EumgGpUycshwQ1fUUwG+io+K/uTdAnYg/5XRvTsWocIYlbxWNMWAdB04t89/1O/w1cDnyilFU=')
+    'JSbhommMXXm7pKKEuh39wpG7jIRfUlIYeFJ5rSGVl5JmidKgfChl9YT88P58hxFrDdzk/Gho3/9xH7eYGqhDvunICTg0xVPhl6EumgGpUyeylC8t/JvDIWdDVp9aFcDev4rYqmIGjdih4tynMX6hNgdB04t89/1O/w1cDnyilFU=')
 handler = WebhookHandler('479d40465262d442c52077b32933ff9a')
 
 
