@@ -12,6 +12,9 @@ from flask import Flask
 import tempfile
 import os
 
+from shopee import *
+from message import *
+
 app = Flask(__name__)
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
 line_bot_api = LineBotApi(
@@ -33,8 +36,12 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    line_bot_api.reply_message(
-        event.reply_token, TextSendMessage(text=event.message.text))
+    if isinstance(event, MessageEvent):
+        keyword = event.message.text
+        line_bot_api.reply_message(
+            event.reply_token,
+            quick_replyCon()
+        )
 
 
 if __name__ == '__main__':
