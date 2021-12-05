@@ -10,11 +10,11 @@ def quick_replyCon():
             items=[
                 QuickReplyButton(
                     action=PostbackAction(
-                        label="new", data="new", display_text="全新")
+                        label="全新", data="new", display_text="全新")
                 ),
                 QuickReplyButton(
                     action=PostbackAction(
-                        label="used", data="used", display_text="二手")
+                        label="二手", data="used", display_text="二手")
                 ),
             ]
         )

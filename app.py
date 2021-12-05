@@ -12,7 +12,7 @@ from flask import Flask
 import tempfile
 import os
 
-from message import *
+from postback import *
 
 app = Flask(__name__)
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
@@ -37,6 +37,7 @@ def callback():
 def handle_postback(event):
     ts = event.postback.data
     if ts == "new":
+        conditions = ts
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text='全新'))
