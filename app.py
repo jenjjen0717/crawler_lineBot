@@ -13,7 +13,7 @@ import tempfile
 import os
 
 from postback import *
-from shopee import shopee
+from test2 import shopee
 
 app = Flask(__name__)
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
@@ -52,7 +52,7 @@ def handle_message(event):
     message = shopee(event.message.text)
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=message.get_keyword()))
+        TextSendMessage(text=message.get_list()))
 
 
 if __name__ == '__main__':
