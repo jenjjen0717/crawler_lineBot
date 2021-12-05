@@ -37,10 +37,10 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     if isinstance(event, MessageEvent):
-        keyword = event.message.text
+        message = quick_replyCon()
         line_bot_api.reply_message(
             event.reply_token,
-            quick_replyCon()
+            message
         )
 
 
