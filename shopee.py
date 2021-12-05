@@ -8,7 +8,7 @@ from abc import ABC, abstractmethod
 
 class keyword(ABC):
     def __init__(self, key):
-        self.key = key  # 地區
+        self.key = key  # 關鍵字
 
     @abstractmethod
     def scrape(self):
@@ -24,9 +24,10 @@ headers = {
 }
 
 
-def get_keyword(keyword):
-    data = {}
-    get_allList(data, keyword)
+class shopee(keyword):
+    def get_keyword(keyword):
+        data = {}
+        get_allList(data, keyword)
 
 
 f1 = open("shopee.txt", "w", encoding="utf-8")
