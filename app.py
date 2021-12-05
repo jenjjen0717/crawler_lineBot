@@ -12,6 +12,7 @@ from flask import Flask
 import tempfile
 import os
 
+from message import *
 
 app = Flask(__name__)
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
@@ -32,11 +33,24 @@ def callback():
     return 'OK'
 
 
+@handler.add(PostbackEvent)
+def handle_postback(event):
+    ts = event.postback.data
+    if ts == "new":
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text='全新'))
+    else:
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text='二手'))
+
+
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=event.message.text))
+        quick_replyCon())
 
 
 if __name__ == '__main__':
