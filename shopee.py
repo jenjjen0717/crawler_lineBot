@@ -3,11 +3,19 @@ import requests
 from bs4 import BeautifulSoup
 import json
 import urllib
+from abc import ABC, abstractmethod
 
-from app import urlInfo
+
+class keyword(ABC):
+    def __init__(self, key):
+        self.key = key  # 地區
+
+    @abstractmethod
+    def scrape(self):
+        pass
+
 
 DOMAIN = "https://shopee.tw/"
-
 
 headers = {
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36 Edg/96.0.1054.29',
@@ -34,6 +42,7 @@ def get_allList(data, keyword):
 
     page_url = DOMAIN + \
         f"api/v2/search_items/?by=sales&conditions=new&keyword={keyword}&limit=10&newest=0&order=desc&page_type=search&price_max=600&version=2"
+
     get_list(page_url, data)
 
 
@@ -119,5 +128,6 @@ def get_result(data):
     result = ""
     for i in range(1):
         result += data["url"]
+    print(result)
 
     return result
