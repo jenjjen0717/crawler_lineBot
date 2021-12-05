@@ -12,8 +12,6 @@ from flask import Flask
 import tempfile
 import os
 
-from shopee import *
-from message import *
 
 app = Flask(__name__)
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
