@@ -7,9 +7,7 @@ import urllib
 from app import urlInfo
 
 DOMAIN = "https://shopee.tw/"
-keyword = input()
-price_max = input()
-conditions = urlInfo[0]
+
 
 headers = {
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36 Edg/96.0.1054.29',
@@ -35,7 +33,7 @@ def get_allList(data, keyword):
     print(getList, file=f1)
 
     page_url = DOMAIN + \
-        f"api/v2/search_items/?by=sales&conditions={conditions}&keyword={keyword}&limit=10&newest=0&order=desc&page_type=search&price_max={price_max}&version=2"
+        f"api/v2/search_items/?by=sales&conditions=new&keyword={keyword}&limit=10&newest=0&order=desc&page_type=search&price_max=600&version=2"
     get_list(page_url, data)
 
 
@@ -114,5 +112,12 @@ def get_item(shopid, productid, promotion, data):
         data['option_flavor'] = ""
         print(data, file=f2)
 
+    get_result(data)
 
-get_keyword(keyword)
+
+def get_result(data):
+    result = ""
+    for i in range(1):
+        result += data["url"]
+
+    return result

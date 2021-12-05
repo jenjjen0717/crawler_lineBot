@@ -13,6 +13,7 @@ import tempfile
 import os
 
 from postback import *
+from shopee import *
 
 app = Flask(__name__)
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
@@ -33,15 +34,10 @@ def callback():
     return 'OK'
 
 
-file = open("urlInfo.txt", "w", encoding="utf-8")
-urlInfo = []
-
-
 @handler.add(PostbackEvent)
 def handle_postback(event):
     ts = event.postback.data
     if ts == "new":
-        urlInfo.append(ts)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text='全新'))
@@ -53,9 +49,10 @@ def handle_postback(event):
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    message = get_keyword(event.message.text)
     line_bot_api.reply_message(
         event.reply_token,
-        quick_replyCon())
+        message)
 
 
 if __name__ == '__main__':
