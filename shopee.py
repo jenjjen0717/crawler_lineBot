@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import json
 import urllib
 
-from app import conditions
+from app import handle_postback
 
 DOMAIN = "https://shopee.tw/"
 keyword = input()

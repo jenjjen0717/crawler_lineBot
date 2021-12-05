@@ -46,6 +46,8 @@ def handle_postback(event):
             event.reply_token,
             TextSendMessage(text='二手'))
 
+    return conditions
+
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
