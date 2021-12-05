@@ -33,11 +33,15 @@ def callback():
     return 'OK'
 
 
+file = open("urlInfo.txt", "w", encoding="utf-8")
+urlInfo = []
+
+
 @handler.add(PostbackEvent)
 def handle_postback(event):
     ts = event.postback.data
     if ts == "new":
-        conditions = ts
+        urlInfo.append(ts)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text='全新'))
@@ -45,8 +49,6 @@ def handle_postback(event):
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text='二手'))
-
-    return conditions
 
 
 @handler.add(MessageEvent, message=TextMessage)
