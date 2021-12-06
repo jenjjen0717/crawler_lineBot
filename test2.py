@@ -72,6 +72,7 @@ def shopee(keyword, minP, maxP):
         if str(type(itemImageurl[num].get_attribute('src'))) != "<class 'NoneType'>":
             if '_tn' in itemImageurl[num].get_attribute('src'):
                 itemImagelist.append(itemImageurl[num].get_attribute('src'))
+                print(itemImageurl[num].get_attribute('src'))
 
     itemTitlelist = []
     itemTitle = driver.find_elements_by_css_selector("._10Wbs-._5SSWfi.UjjMrh")
