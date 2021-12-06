@@ -40,7 +40,7 @@ def handle_message(event):
     keyword = msg.split(' ')[0]
     minP = msg.split(' ')[1]
     maxP = msg.split(' ')[2]
-    userid = event.source.user_id
+    userid = line_bot_api.get_profile('<user_id>')
     message = shopee(keyword, minP, maxP)
     line_bot_api.reply_message(
         event.reply_token, message)
