@@ -12,14 +12,14 @@ from flask import Flask
 import tempfile
 import os
 
-from postback import *
-from test2 import shopee
+from config import *
+from test2 import *
 
 app = Flask(__name__)
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
 line_bot_api = LineBotApi(
-    'JSbhommMXXm7pKKEuh39wpG7jIRfUlIYeFJ5rSGVl5JmidKgfChl9YT88P58hxFrDdzk/Gho3/9xH7eYGqhDvunICTg0xVPhl6EumgGpUyeylC8t/JvDIWdDVp9aFcDev4rYqmIGjdih4tynMX6hNgdB04t89/1O/w1cDnyilFU=')
-handler = WebhookHandler('479d40465262d442c52077b32933ff9a')
+    channel_access_token)
+handler = WebhookHandler(channel_secret)
 
 
 @app.route('/callback', methods=['POST'])
@@ -34,25 +34,15 @@ def callback():
     return 'OK'
 
 
-@handler.add(PostbackEvent)
-def handle_postback(event):
-    ts = event.postback.data
-    if ts == "new":
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text='全新'))
-    else:
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text='二手'))
-
-
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    message = shopee(event.message.text)
+    msg = event.message.text
+    keyword = msg.split(' ')[0]
+    minP = msg.split(' ')[1]
+    minP = msg.split(' ')[2]
+    message = shopee(keyword, minP, maxP)
     line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=message.get_list()))
+        event.reply_token, message)
 
 
 if __name__ == '__main__':

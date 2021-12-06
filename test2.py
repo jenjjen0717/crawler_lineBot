@@ -1,14 +1,11 @@
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 from linebot.models import *
+from flex_msg import *
 from config import *
 import time
 import random
 import string
-
-keyword = input()
-minP = input()
-maxP = input()
 
 
 def shopee(keyword, minP, maxP):
@@ -88,6 +85,12 @@ def shopee(keyword, minP, maxP):
     for num in range(ads, 10):
         itemPricelist.append(itemPrice[num].text)
     print(itemPricelist)
+
+    driver.close()
+
+    message = item_carousel("搜尋結果", itemImagelist,
+                            itemTitlelist, itemPricelist, itemUrllist)
+    return message
 
 
 shopee(keyword, minP, maxP)
