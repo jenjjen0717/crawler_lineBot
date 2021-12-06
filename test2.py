@@ -92,3 +92,12 @@ def shopee(keyword, minP, maxP):
     message = item_carousel("搜尋結果", itemImagelist,
                             itemTitlelist, itemPricelist, itemUrllist)
     return message
+
+
+if __name__ == '__main__':
+    from linebot import LineBotApi, WebhookHandler
+    from linebot.exceptions import InvalidSignatureError
+    from linebot.models import *
+    message = shopee('貓糧', '0', '600')
+    line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
+    line_bot_api.push_message(USER_ID, message)
