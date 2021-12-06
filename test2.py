@@ -91,6 +91,3 @@ def shopee(keyword, minP, maxP):
     message = item_carousel("搜尋結果", itemImagelist,
                             itemTitlelist, itemPricelist, itemUrllist)
     return message
-
-
-shopee(keyword, minP, maxP)
