@@ -18,8 +18,8 @@ from test2 import *
 app = Flask(__name__)
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
 line_bot_api = LineBotApi(
-    channel_access_token)
-handler = WebhookHandler(channel_secret)
+    CHANNEL_ACCESS_TOKEN)
+handler = WebhookHandler(CHANNEL_SECRET)
 
 
 @app.route('/callback', methods=['POST'])
