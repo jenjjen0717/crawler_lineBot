@@ -41,11 +41,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg = event.message.text.split(' ')
-    keyword = msg[0]
-    minP = msg[1]
-    maxP = msg[2]
-    message = keyword+minP+maxP
-    line_bot_api.reply_message(event.reply_token, message)
+    line_bot_api.reply_message(event.reply_token, msg)
 
 
 if __name__ == '__main__':
