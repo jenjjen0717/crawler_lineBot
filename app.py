@@ -15,6 +15,7 @@ import os
 from config import *
 from test2 import *
 
+
 app = Flask(__name__)
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
 line_bot_api = LineBotApi(
@@ -36,9 +37,8 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    # get user id when reply
-    user_id = event.source.user_id
-    print("user_id =", user_id)
+    msg = event.message.text
+    line_bot_api.reply_message(event.reply_token, TextSendMessage(text=msg))
 
 
 if __name__ == '__main__':
