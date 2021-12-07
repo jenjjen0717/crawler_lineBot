@@ -18,7 +18,7 @@ def shopee(keyword):
     driver.get(domain)
 
     action = ActionChains(driver)
-    action.move_by_offset(200, 100).click().perform()
+    action.move_by_offset(930, 100).click().perform()
     time.sleep(1)
 
     search_item = driver.find_element_by_class_name(
