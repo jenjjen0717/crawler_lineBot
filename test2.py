@@ -8,7 +8,7 @@ from config import *
 import time
 
 
-def shopee(keyword):
+def shopee(keyword, minP, maxP):
 
     domain = "https://shopee.tw/"
 
@@ -18,8 +18,7 @@ def shopee(keyword):
     driver.get(domain)
 
     action = ActionChains(driver)
-    action.move_by_offset(930, 100).click().perform()
-    time.sleep(1)
+    action.move_by_offset(200, 100).click().perform()
 
     search_item = driver.find_element_by_class_name(
         "shopee-searchbar-input__input")
@@ -40,8 +39,8 @@ def shopee(keyword):
     applyBtn = driver.find_element_by_css_selector(
         ".shopee-button-solid.shopee-button-solid--primary._1-VOCH"
     )
-    priceMin.send_keys(0)
-    priceMax.send_keys(600)
+    priceMin.send_keys(minP)
+    priceMax.send_keys(maxP)
     applyBtn.click()
     driver.refresh()
     time.sleep(2)
@@ -97,6 +96,6 @@ if __name__ == '__main__':
     from linebot import LineBotApi, WebhookHandler
     from linebot.exceptions import InvalidSignatureError
     from linebot.models import *
-    msg = shopee('貓糧')
+    msg = shopee('貓糧', '0', '600')
     line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
     line_bot_api.push_message(USERID, msg)
