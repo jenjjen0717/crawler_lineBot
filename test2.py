@@ -1,11 +1,11 @@
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 from linebot.models import *
+
 from flex_msg import *
 from config import *
+
 import time
-import random
-import string
 
 
 def shopee(keyword, minP, maxP):
