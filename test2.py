@@ -65,9 +65,7 @@ def shopee(keyword, minP, maxP):
         time.sleep(0.1)
 
     itemImagelist = []
-    itemImageurl = driver.find_elements_by_css_selector(
-        ".customized-overlay-image>img"
-    )
+    itemImageurl = driver.find_elements_by_css_selector("._3-N5L6._2GchKS")
     for num in range(ads, 10):
         if str(type(itemImageurl[num].get_attribute('src'))) != "<class 'NoneType'>":
             if '_tn' in itemImageurl[num].get_attribute('src'):
@@ -98,6 +96,6 @@ if __name__ == '__main__':
     from linebot import LineBotApi, WebhookHandler
     from linebot.exceptions import InvalidSignatureError
     from linebot.models import *
-    message = shopee('貓糧', '0', '600')
+    msg = shopee('貓糧', '0', '600')
     line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
-    line_bot_api.push_message(USER_ID, message)
+    line_bot_api.push_message(USERID, msg)

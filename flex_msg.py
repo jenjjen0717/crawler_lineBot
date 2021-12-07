@@ -14,7 +14,7 @@ def item_carousel(alt_text, itemImagelist, itemTitlelist, itemPricelist, itemUrl
             bubble = {"type": "bubble",
                       "hero": {
                           "type": "image",
-                          "url": imageUrl,
+                          "url": imageUrl + "?",
                           "size": "full",
                           "aspectRatio": "20:13",
                           "aspectMode": "fit"
@@ -26,7 +26,7 @@ def item_carousel(alt_text, itemImagelist, itemTitlelist, itemPricelist, itemUrl
                           "contents": [
                                     {
                                         "type": "text",
-                                        "text": itemTitle,
+                                        "text": itemTitle[:30] if len(itemTitle) < 30 else itemTitle[:30] + '...',
                                         "weight": "bold",
                                         "size": "xl",
                                         "wrap": False,

@@ -8,6 +8,7 @@ from linebot.exceptions import InvalidSignatureError
 from linebot import LineBotApi, WebhookHandler
 from flask import request, abort
 from flask import Flask
+from liffpy import LineFrontendFramework as LIFF, ErrorResponse
 
 import tempfile
 import os
@@ -15,8 +16,9 @@ import os
 from config import *
 from test2 import *
 
+liff_api = LIFF(CHANNEL_ACCESS_TOKEN)
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
 line_bot_api = LineBotApi(
     CHANNEL_ACCESS_TOKEN)
