@@ -14,7 +14,7 @@ import tempfile
 import os
 
 from config import *
-from test2 import *
+from test import *
 
 liff_api = LIFF(CHANNEL_ACCESS_TOKEN)
 
@@ -25,10 +25,11 @@ line_bot_api = LineBotApi(
 handler = WebhookHandler(CHANNEL_SECRET)
 
 
-@app.route('/callback', methods=['POST'])
+@app.route("/callback", methods=['POST'])
 def callback():
     signature = request.headers['X-Line-Signature']
     body = request.get_data(as_text=True)
+    print(body)
     app.logger.info("Request body: " + body)
     try:
         handler.handle(body, signature)
@@ -39,10 +40,10 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    msg = event.message.text
-    keyword = msg.split(' ')[0]
-    minP = msg.split(' ')[1]
-    maxP = msg.split(' ')[2]
+    msg = event.message.text.split(' ')
+    keyword = msg[0]
+    minP = msg[1]
+    maxP = msg[2]
     message = shopee(keyword, minP, maxP)
     line_bot_api.reply_message(event.reply_token, message)
 
