@@ -14,7 +14,7 @@ import tempfile
 import os
 
 from config import *
-from test import *
+from test2 import *
 
 liff_api = LIFF(CHANNEL_ACCESS_TOKEN)
 
@@ -44,7 +44,7 @@ def handle_message(event):
     keyword = msg[0]
     minP = msg[1]
     maxP = msg[2]
-    message = shopee(keyword, minP, maxP)
+    message = keyword+minP+maxP
     line_bot_api.reply_message(event.reply_token, message)
 
 
