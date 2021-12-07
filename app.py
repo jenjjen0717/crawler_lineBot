@@ -41,11 +41,11 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg = event.message.text
-    keyword = msg.split(',')[0]
-    minP = msg.split(',')[1]
-    maxP = msg.split(',')[2]
+    keyword = msg.split(' ')[0]
+    minP = msg.split(' ')[1]
+    maxP = msg.split(' ')[2]
     Message = shopee(keyword, minP, maxP)
-    line_bot_api.reply_message(event.reply_token, TextSendMessage(text=msg))
+    line_bot_api.reply_message(event.reply_token, Message)
 
 
 if __name__ == '__main__':
