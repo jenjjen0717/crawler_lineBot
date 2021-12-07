@@ -18,7 +18,7 @@ def shopee(keyword, minP, maxP):
     driver.get(domain)
 
     action = ActionChains(driver)
-    action.move_by_offset(200, 100).click().perform()
+    action.move_by_offset(930, 200).click().perform()
 
     search_item = driver.find_element_by_class_name(
         "shopee-searchbar-input__input")
@@ -32,9 +32,9 @@ def shopee(keyword, minP, maxP):
     time.sleep(2)
 
     priceMin = driver.find_element_by_css_selector(
-        ".shopee-filter-group__body.shopee-price-range-filter__edit>.shopee-price-range-filter__inputs>input:nth-child(1)")
+        ".shopee-price-range-filter__inputs>input:nth-child(1)")
     priceMax = driver.find_element_by_css_selector(
-        ".shopee-filter-group__body.shopee-price-range-filter__edit>.shopee-price-range-filter__inputs>input:nth-child(3)"
+        ".shopee-price-range-filter__inputs>input:nth-child(3)"
     )
     applyBtn = driver.find_element_by_css_selector(
         ".shopee-button-solid.shopee-button-solid--primary._1-VOCH"
