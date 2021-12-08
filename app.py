@@ -41,7 +41,6 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    msg = event.message.text
     message = shopeeTest()
     line_bot_api.reply_message(event.reply_token, message)
 

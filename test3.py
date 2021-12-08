@@ -33,7 +33,7 @@ def shopeeTest():
     time.sleep(2)
 
     action = ActionChains(driver)
-    action.move_by_offset(930, 200).click().perform()
+    action.move_by_offset(930, 70).click().perform()
 
     image_path = './static/tmp/test4.png'
     driver.refresh()
@@ -54,3 +54,12 @@ def shopeeTest():
                    random_code, preview_image_url=HEROKU_APP_URL + '/static/tmp/test4.png?'+random_code))
 
     return message
+
+
+if __name__ == '__main__':
+    from linebot import LineBotApi, WebhookHandler
+    from linebot.exceptions import InvalidSignatureError
+    from linebot.models import *
+    msg = shopeeTest()
+    line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
+    line_bot_api.push_message(USERID, msg)

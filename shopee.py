@@ -34,7 +34,7 @@ def shopee(keyword, minP, maxP):
     time.sleep(2)
 
     action = ActionChains(driver)
-    action.move_by_offset(930, 200).click().perform()
+    action.move_by_offset(930, 70).click().perform()
 
     search_item = driver.find_element_by_class_name(
         "shopee-searchbar-input__input")
