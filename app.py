@@ -14,8 +14,7 @@ import tempfile
 import os
 
 from config import *
-from test import shopee
-from test3 import *
+from shopee import *
 
 liff_api = LIFF(CHANNEL_ACCESS_TOKEN)
 
@@ -41,7 +40,11 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    message = shopeeTest()
+    msg = event.message.text
+    keyword = msg.split(' ')[0]
+    minP = msg.split(' ')[1]
+    maxP = msg.split(' ')[2]
+    message = shopee(keyword, minP, maxP)
     line_bot_api.reply_message(event.reply_token, message)
 
 
