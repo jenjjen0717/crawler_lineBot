@@ -9,7 +9,7 @@ import random
 import string
 
 
-def shopeeTest(keyword):
+def shopeeTest():
 
     domain = "https://shopee.tw/"
     '''
@@ -40,22 +40,6 @@ def shopeeTest(keyword):
     driver.save_screenshot(image_path)
     time.sleep(2)
 
-    search_item = driver.find_element_by_class_name(
-        "shopee-searchbar-input__input")
-    search_item.send_keys(keyword)
-    time.sleep(1)
-
-    search_button = driver.find_element_by_class_name(
-        "shopee-searchbar__search-button")
-    search_button.click()
-    driver.refresh()
-    time.sleep(2)
-
-    image_path = './static/tmp/test.png'
-    driver.refresh()
-    driver.save_screenshot(image_path)
-    time.sleep(2)
-
     driver.close()
 
     message = []
@@ -68,7 +52,5 @@ def shopeeTest(keyword):
                    random_code, preview_image_url=HEROKU_APP_URL + '/static/tmp/test2.png?'+random_code))
     message.append(ImageSendMessage(original_content_url=HEROKU_APP_URL + '/static/tmp/test4.png?' +
                    random_code, preview_image_url=HEROKU_APP_URL + '/static/tmp/test4.png?'+random_code))
-    message.append(ImageSendMessage(original_content_url=HEROKU_APP_URL + '/static/tmp/test.png?' +
-                   random_code, preview_image_url=HEROKU_APP_URL + '/static/tmp/test.png?'+random_code))
 
     return message
