@@ -29,7 +29,7 @@ def shopeeTest():
 
     image_path = "./static/tmp/test2.png"
     driver.refresh()
-    time.sleep(5)
+    time.sleep(10)
     driver.save_screenshot(image_path)
 
     action = ActionChains(driver)
