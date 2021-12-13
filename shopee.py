@@ -35,7 +35,9 @@ def shopee(data):
     """action = ActionChains(driver)
     action.move_by_offset(930, 70).click().perform()"""
     # 關鍵字搜尋
-    search_item = driver.find_element_by_css_selector(".shopee-searchbar-input > input")
+    search_item = driver.find_element_by_css_selector(
+        ".shopee-searchbar-input > .shopee-searchbar-input__input"
+    )
     search_item.send_keys(keyword)
     search_item.send_keys(Keys.ENTER)
     time.sleep(1)
