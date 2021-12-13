@@ -59,6 +59,7 @@ def shopee_option(data):
                     driver.find_element_by_css_selector(
                         f".flex.items-center._2oeDUI > button:nth-child({optionList.index(item)+1})"
                     ).click()
+                    time.sleep(1)
                     stockStat.append(
                         driver.find_element_by_css_selector(
                             ".flex.items-center._90fTvx > .flex.items-center > div:nth-child(2)"
