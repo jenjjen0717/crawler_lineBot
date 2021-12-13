@@ -41,6 +41,11 @@ def shopee(data):
     search_item.send_keys(Keys.ENTER)
     time.sleep(10)
 
+    for i in range(10):
+        y_position = i * 100
+        driver.execute_script(f"window.scrollTo(0, {y_position});")
+        time.sleep(0.1)
+
     # 輸入價格區間
     priceMin = driver.find_element_by_css_selector(
         ".shopee-price-range-filter__inputs>input:nth-child(1)"
@@ -74,7 +79,7 @@ def shopee(data):
     print(itemUrllist)
 
     # 自動卷軸
-    for i in range(50):
+    for i in range(40):
         y_position = i * 100
         driver.execute_script(f"window.scrollTo(0, {y_position});")
         time.sleep(0.1)
