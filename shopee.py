@@ -21,7 +21,7 @@ def shopee(data):
     domain = "https://shopee.tw/"
 
     driver = webdriver.Chrome()
-    driver.set_window_size(1024, 960)
+    driver.set_window_size(1200, 960)
 
     driver.get(domain)
     time.sleep(5)
