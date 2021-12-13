@@ -1,11 +1,12 @@
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 from linebot.models import *
-from urllib.parse import unquote
+from urllib.parse import quote, urlunparse
 
 import time
 import random
 import string
+import re
 
 from postback import *
 from config import *
@@ -13,12 +14,10 @@ from config import *
 
 def shopee_option(data):
 
-    url = unquote(data, encoding="utf-8")
-
     driver = webdriver.Chrome()
-    driver.set_window_size(1024, 960)
+    driver.set_window_size(1200, 960)
 
-    driver.get(url)
+    driver.get(data)
     time.sleep(2)
 
     optionList = []
@@ -73,6 +72,10 @@ def shopee_option(data):
                             ".flex.items-center > .Ybrg9j"
                         ).text
                     )
+
+    url = "https://shopee.tw/" + quote(
+        re.search("[^(?<=https://shopee.tw/)].*", data).group(), encoding="utf-8"
+    )
     print(url)
     print(optionList)
     print(stockStat)
@@ -90,7 +93,7 @@ if __name__ == "__main__":
     from linebot.models import *
 
     msg = shopee_option(
-        "https://shopee.tw/%E3%80%90%E6%80%AA%E7%8D%B8%E9%83%A8%E8%90%BDLitoMon%E3%80%91%E8%B2%93%E6%97%8F-98-%E9%AE%AE%E8%82%89%E4%B8%BB%E9%A3%9F%E7%B3%A7800g-%E8%B2%93%E7%B3%A7-%E9%AE%AE%E8%82%89%E7%B3%A7-%E4%B8%BB%E9%A3%9F-%E4%B9%BE%E9%A3%9F-%E5%AE%98%E6%96%B9%E7%9B%B4%E9%80%81-%E6%95%88%E6%9C%9F%E6%9C%80%E6%96%B0-i.326491541.7659409525?sp_atk=9a81d319-17fa-4d49-90aa-da7946608e79"
+        "https://shopee.tw/【怪獸部落LitoMon】貓族-98-鮮肉主食糧800g-貓糧-鮮肉糧-主食-乾食-官方直送-效期最新-i.326491541.7659409525?sp_atk=9a81d319-17fa-4d49-90aa-da7946608e79"
     )
     line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
     line_bot_api.push_message(USERID, msg)
