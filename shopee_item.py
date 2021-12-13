@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 from linebot.models import *
+from urllib.parse import unquote
 
 import time
 import random
@@ -12,10 +13,12 @@ from config import *
 
 def shopee_option(data):
 
+    url = unquote(data, encoding="utf-8")
+
     driver = webdriver.Chrome()
     driver.set_window_size(1024, 960)
 
-    driver.get(data)
+    driver.get(url)
     time.sleep(2)
 
     optionList = []
@@ -70,14 +73,14 @@ def shopee_option(data):
                             ".flex.items-center > .Ybrg9j"
                         ).text
                     )
-
+    print(url)
     print(optionList)
     print(stockStat)
     print(price)
 
     driver.close()
 
-    message = itemOption_carousel("選項", data, optionList, price, stockStat)
+    message = itemOption_carousel("選項", url, optionList, price, stockStat)
     return message
 
 
