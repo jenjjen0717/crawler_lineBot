@@ -14,6 +14,10 @@ import string
 
 def shopee(data):
 
+    chromeOption = webdriver.ChromeOptions()
+    chromeOption.add_argument("--no-sandbox")
+    chromeOption.add_argument("--disable-dev-shm-usage")
+
     keyword = data.split(" ")[0]
     minP = data.split(" ")[1]
     maxP = data.split(" ")[2]
