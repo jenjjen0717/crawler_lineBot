@@ -29,16 +29,16 @@ def shopeeTest():
 
     image_path = "./static/tmp/test2.png"
     driver.refresh()
-    driver.save_screenshot(image_path)
     time.sleep(5)
+    driver.save_screenshot(image_path)
 
     action = ActionChains(driver)
     action.move_by_offset(930, 70).click().perform()
 
     image_path = "./static/tmp/test4.png"
     driver.refresh()
-    driver.save_screenshot(image_path)
     time.sleep(5)
+    driver.save_screenshot(image_path)
 
     driver.close()
 
