@@ -25,7 +25,7 @@ def shopeeTest():
     driver.set_window_size(1024, 960)
 
     driver.get(domain)
-    time.sleep(5)
+    time.sleep(1)
 
     image_path = "./static/tmp/test2.png"
     driver.refresh()
@@ -35,10 +35,9 @@ def shopeeTest():
     action = ActionChains(driver)
     action.move_by_offset(930, 70).click().perform()
 
-    image_path = "./static/tmp/test4.png"
-    driver.refresh()
-    time.sleep(10)
-    driver.save_screenshot(image_path)
+    image4_path = "./static/tmp/test4.png"
+    time.sleep(5)
+    driver.save_screenshot(image4_path)
 
     driver.close()
 
