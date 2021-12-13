@@ -40,7 +40,7 @@ def shopee(data):
     )
     search_item.send_keys(keyword)
     search_item.send_keys(Keys.ENTER)
-    time.sleep(1)
+    time.sleep(5)
     # 輸入價格區間
     priceMin = driver.find_element_by_css_selector(
         ".shopee-price-range-filter__inputs>input:nth-child(1)"
@@ -55,7 +55,7 @@ def shopee(data):
     priceMax.send_keys(maxP)
     applyBtn.click()
     driver.refresh()
-    time.sleep(2)
+    time.sleep(5)
 
     # 廣告
     adsCheck = driver.find_elements_by_css_selector("._25_r8I.ggJllv>.LvWDWe>._1p-nLd")
