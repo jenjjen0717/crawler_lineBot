@@ -37,7 +37,7 @@ def shopeeTest():
 
     image_path = "./static/tmp/test4.png"
     driver.refresh()
-    time.sleep(5)
+    time.sleep(10)
     driver.save_screenshot(image_path)
 
     driver.close()
