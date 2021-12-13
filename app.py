@@ -38,13 +38,14 @@ def callback():
     return 'OK'
 
 
-@handler.add(MessageEvent, message=TextMessage)
+@handler.add(PostbackEvent)
 def handle_message(event):
-    msg = event.message.text
-    keyword = msg.split(' ')[0]
-    minP = msg.split(' ')[1]
-    maxP = msg.split(' ')[2]
-    message = shopee(keyword, minP, maxP)
+    
+
+
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message(event): 
+    message = shopee(event.message.text)
     line_bot_api.reply_message(event.reply_token, message)
 
 

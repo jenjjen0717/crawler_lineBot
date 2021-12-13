@@ -1,7 +1,7 @@
 from linebot.models import *
 from config import *
 # 使用quote進行中文轉碼
-from urllib.parse import quote
+from urllib.parse import unquote
 
 
 def item_carousel(alt_text, itemImagelist, itemTitlelist, itemPricelist, itemUrllist):
@@ -54,15 +54,14 @@ def item_carousel(alt_text, itemImagelist, itemTitlelist, itemPricelist, itemUrl
                           "layout": "vertical",
                           "spacing": "sm",
                           "contents": [
-                                    {
-                                        "type": "button",
-                                        "action": {
-                                            "type": "uri",
-                                            "label": "查看",
-                                            "uri": itemUrl
-                                        },
-                                        "style": "primary"
-                                    }
+                              {
+                                  "type": "button",
+                                  "action": {
+                                    "type": "postback",
+                                    "label": "查看",
+                                    "data": itemUrl
+                                  }
+                              }
                           ]
                       }
                       }
