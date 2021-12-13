@@ -24,7 +24,7 @@ def shopee(data):
     driver.set_window_size(1024, 960)
 
     driver.get(domain)
-    time.sleep(2)
+    time.sleep(5)
 
     image_path = "./static/tmp/test.png"
     driver.refresh()
