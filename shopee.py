@@ -29,13 +29,13 @@ def shopee(data):
     image_path = "./static/tmp/test.png"
     driver.refresh()
     driver.save_screenshot(image_path)
-    time.sleep(2)
+    time.sleep(5)
 
     # 彈窗廣告處理
     """action = ActionChains(driver)
     action.move_by_offset(930, 70).click().perform()"""
     # 關鍵字搜尋
-    search_item = driver.find_element_by_css_selector(".shopee-searchbar-input>input")
+    search_item = driver.find_element_by_css_selector(".shopee-searchbar-input > input")
     search_item.send_keys(keyword)
     search_item.send_keys(Keys.ENTER)
     time.sleep(1)
