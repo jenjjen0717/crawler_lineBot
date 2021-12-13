@@ -15,6 +15,11 @@ import string
 def shopee(data):
 
     chromeOption = webdriver.ChromeOptions()
+    chromeOption.add_argument("--lang=zh-CN.UTF8")
+    # 設定瀏覽器的user agent
+    chromeOption.add_argument(
+        "user-agent=Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0"
+    )
     chromeOption.add_argument("--no-sandbox")
     chromeOption.add_argument("--disable-dev-shm-usage")
 
