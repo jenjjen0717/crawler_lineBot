@@ -88,7 +88,7 @@ def shopee(data):
     print(itemUrllist)
 
     # 自動卷軸
-    for i in range(40):
+    for i in range(10):
         y_position = i * 100
         driver.execute_script(f"window.scrollTo(0, {y_position});")
         time.sleep(0.1)
