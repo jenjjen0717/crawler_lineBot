@@ -15,24 +15,12 @@ import re
 
 
 def shopee(data):
-    # 建立chrome設定
-    chromeOption = webdriver.ChromeOptions()
-    # 設定瀏覽器的語言為utf-8中文
-    chromeOption.add_argument("--lang=zh-CN.UTF8")
-    chromeOption.add_argument("--no-sandbox")
-    chromeOption.add_argument("--disable-dev-shm-usage")
-    # 設定瀏覽器的user agent
-    chromeOption.add_argument(
-        "user-agent=Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0"
-    )
-    # 開啟Chrome瀏覽器
-    driver = webdriver.Chrome(options=chromeOption)
 
     keyword = data.split(" ")[0]
     minP = data.split(" ")[1]
     maxP = data.split(" ")[2]
 
-    # driver = webdriver.Chrome()
+    driver = webdriver.Chrome()
     domain = "https://shopee.tw/"
     driver.set_window_size(1200, 960)
 
@@ -72,6 +60,11 @@ def shopee(data):
     applyBtn.click()
     driver.refresh()
     time.sleep(2)
+
+    for i in range(10):
+        y_position = i * 100
+        driver.execute_script(f"window.scrollTo(0, {y_position});")
+        time.sleep(0.1)
 
     # 廣告
     adsCheck = driver.find_elements_by_css_selector("._25_r8I.ggJllv>.LvWDWe>._1p-nLd")

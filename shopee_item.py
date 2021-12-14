@@ -73,8 +73,13 @@ def shopee_option(data):
                         ).text
                     )
 
-    url = "https://shopee.tw/" + quote(
-        re.search("[^(?<=https://shopee.tw/)].*", data).group(), encoding="utf-8"
+    url = (
+        "https://shopee.tw/"
+        + quote(
+            re.search("(?<=https://shopee.tw/).*(?=\-i\.)", data).group(),
+            encoding="utf-8",
+        )
+        + re.search("\-i\..*", data).group()
     )
     print(url)
     print(optionList)
