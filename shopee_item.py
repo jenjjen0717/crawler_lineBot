@@ -14,9 +14,6 @@ import re
 
 def shopee_option(data):
 
-    # 開啟Chrome瀏覽器
-    driver = webdriver.Chrome(options=chromeOption)
-
     driver = webdriver.Chrome()
     driver.set_window_size(1200, 960)
 
