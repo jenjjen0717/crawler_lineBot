@@ -46,7 +46,7 @@ def shopee(data):
     search_item = driver.find_element_by_class_name("shopee-searchbar-input__input")
     search_item.send_keys(keyword)
     search_item.send_keys(Keys.ENTER)
-    time.sleep(5)
+    time.sleep(2)
 
     for i in range(10):
         y_position = i * 100
