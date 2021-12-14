@@ -14,15 +14,14 @@ import string
 
 def shopee(data):
 
+    """
     chromeOption = webdriver.ChromeOptions()
     chromeOption.add_argument("--lang=zh-CN.UTF8")
     # 設定瀏覽器的user agent
     chromeOption.add_argument(
         "user-agent=Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0"
     )
-    chromeOption.add_argument("--no-sandbox")
-    chromeOption.add_argument("--disable-dev-shm-usage")
-
+    """
     keyword = data.split(" ")[0]
     minP = data.split(" ")[1]
     maxP = data.split(" ")[2]
@@ -33,11 +32,11 @@ def shopee(data):
     driver.set_window_size(1200, 960)
 
     driver.get(domain)
-    time.sleep(5)
+    time.sleep(1)
 
     image_path = "./static/tmp/test.png"
     driver.save_screenshot(image_path)
-    time.sleep(5)
+    time.sleep(2)
 
     # 彈窗廣告處理
     """action = ActionChains(driver)
@@ -48,7 +47,7 @@ def shopee(data):
     )
     search_item.send_keys(keyword)
     search_item.send_keys(Keys.ENTER)
-    time.sleep(10)
+    time.sleep(5)
 
     for i in range(10):
         y_position = i * 100
@@ -69,7 +68,7 @@ def shopee(data):
     priceMax.send_keys(maxP)
     applyBtn.click()
     driver.refresh()
-    time.sleep(5)
+    time.sleep(2)
 
     # 廣告
     adsCheck = driver.find_elements_by_css_selector("._25_r8I.ggJllv>.LvWDWe>._1p-nLd")
@@ -86,12 +85,6 @@ def shopee(data):
                 unquote(itemUrl[num].get_attribute("href"), encoding="utf-8")
             )
     print(itemUrllist)
-
-    # 自動卷軸
-    for i in range(10):
-        y_position = i * 100
-        driver.execute_script(f"window.scrollTo(0, {y_position});")
-        time.sleep(0.1)
 
     # 商品圖片
     itemImagelist = []
