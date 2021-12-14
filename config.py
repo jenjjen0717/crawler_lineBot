@@ -1,4 +1,4 @@
 CHANNEL_ACCESS_TOKEN = "JSbhommMXXm7pKKEuh39wpG7jIRfUlIYeFJ5rSGVl5JmidKgfChl9YT88P58hxFrDdzk/Gho3/9xH7eYGqhDvunICTg0xVPhl6EumgGpUyeylC8t/JvDIWdDVp9aFcDev4rYqmIGjdih4tynMX6hNgdB04t89/1O/w1cDnyilFU="
 CHANNEL_SECRET = "479d40465262d442c52077b32933ff9a"
 USERID = "Ufe916aeee4ef94b365ab61a978971b77"
-HEROKU_APP_URL = "https://nknuite.herokuapp.com/"
+HEROKU_APP_URL = "https://shopee-crawl.herokuapp.com/"
