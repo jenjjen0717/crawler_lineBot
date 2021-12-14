@@ -24,7 +24,6 @@ def shopee(data):
     chromeOption.add_argument("--disable-dev-shm-usage")
     chromeOption.add_argument("--disable-browser-side-navigation")
     chromeOption.add_argument("--disable-gpu")
-    chromeOption.add_argument("--disable-features=VizDisplayCompositor")
     # 設定瀏覽器的user agent
     chromeOption.add_argument(
         "user-agent=Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0"
