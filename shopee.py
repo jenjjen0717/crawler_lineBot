@@ -16,11 +16,19 @@ import re
 
 def shopee(data):
 
+    chromeOption = webdriver.ChromeOptions()
+    # 設定瀏覽器的語言為utf-8中文
+    chromeOption.add_argument("--lang=zh-CN.UTF8")
+    chromeOption.add_argument("--no-sandbox")
+    chromeOption.add_argument("--disable-dev-shm-usage")
+
+    driver = webdriver.Chrome(options=chromeOption)
+
     keyword = data.split(" ")[0]
     minP = data.split(" ")[1]
     maxP = data.split(" ")[2]
 
-    driver = webdriver.Chrome()
+    # driver = webdriver.Chrome()
     domain = "https://shopee.tw/"
     driver.set_window_size(1200, 960)
 
