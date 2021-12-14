@@ -15,7 +15,6 @@ import os
 
 from config import *
 from shopee import *
-from shopee_item import shopee_option
 
 liff_api = LIFF(CHANNEL_ACCESS_TOKEN)
 
