@@ -1,4 +1,0 @@
-CHANNEL_ACCESS_TOKEN = "bS+nN1p6VueeppNKGpMYmJdEB0GiDoMtKdXHUcCJTw5aKuOerjkrWDCgZOcZkZm45sucusnUDPt0pfcWRRHdKw7yV3tF7kyQf/ZJcCiYERFsqn2/ks9MoRaIsLL1Nsqik0uXxec2IbphQjuUQ7HPswdB04t89/1O/w1cDnyilFU="
-CHANNEL_SECRET = "003f0198da856995c044fa64d92a00fb"
-USERID = "Ufe916aeee4ef94b365ab61a978971b77"
-HEROKU_APP_URL = "https://shopee-crawl.herokuapp.com/"
