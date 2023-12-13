@@ -100,13 +100,13 @@ def shopee(data):
                 print(itemImageurl[num].get_attribute("src"))
     # 商品名稱
     itemTitlelist = []
-    itemTitle = driver.find_elements_by_css_selector("._10Wbs-._5SSWfi.UjjMrh")
+    itemTitle = driver.find_elements_by_css_selector("._10Wbs-._2STCsK._3IqNCf")
     for num in range(ads, 10):
         itemTitlelist.append(itemTitle[num].text)
     print(itemTitlelist)
     # 商品價格
     itemPricelist = []
-    itemPrice = driver.find_elements_by_css_selector(".zp9xm9.xSxKlK._1heB4J")
+    itemPrice = driver.find_elements_by_css_selector(".zp9xm9.kNGSLn.l-u0xK")
     for num in range(ads, 10):
         itemPricelist.append(itemPrice[num].text)
     print(itemPricelist)
